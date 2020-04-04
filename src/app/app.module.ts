@@ -1,8 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { NewsApiService } from './news-api.service';
+import { MatSliderModule } from '@angular/material/slider';
 
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MaterialModule} from './material';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,9 +16,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
-  ],
-  providers: [],
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatSliderModule,
+   MaterialModule
+     ],
+  exports:[MatSliderModule],
+  providers: [NewsApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
